@@ -55,11 +55,53 @@ const AddressContainer = styled.div`
     row-gap: 12px;
     margin-top: 16px;
     margin-left: 30%;
+    margin-bottom: 16px;
     @media screen and (max-width: 500px) {
         margin-left: 4%;
     }
 `;
 
+const CountContainer = styled(AddressContainer)`
+    width: 70%;
+    margin-left: 0;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    justify-content: space-between;
+    @media screen and (max-width: 500px) {
+        width: 96%
+    }
+`;
+
+const CountButtonContainer = styled.div`
+    display: flex;
+    column-gap: 24px;
+`;
+
+const CountTextContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+`;
+
+const CountExplainText = styled.span`
+    font-size: 12px;
+    color: ${colors.red};
+`;
+
+const DividedLine = styled.div`
+    width: 70%;
+    height: 0px;
+    border: 1px solid ${colors.flashWhite};
+    margin-bottom: 20px;
+    @media screen and (max-width: 500px) {
+        width: 96%
+    }
+`;
+
 export {
-    Container, FormContainer, FormTitleContainer, Title, SubTitle, AddressContainer,
+    Container, FormContainer, FormTitleContainer, Title,
+    SubTitle, AddressContainer, CountContainer, DividedLine,
+    CountTextContainer, CountExplainText, CountButtonContainer,
 };

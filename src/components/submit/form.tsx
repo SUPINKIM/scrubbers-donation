@@ -1,17 +1,22 @@
+import { Button } from 'components/ui/button';
 import { Input } from 'components/ui/input';
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import {
-    AddressContainer, Container, FormContainer, FormTitleContainer, Title, SubTitle,
+    AddressContainer, Container, FormContainer, DividedLine,
+    FormTitleContainer, Title, SubTitle, CountContainer,
+    CountExplainText, CountTextContainer, CountButtonContainer,
 } from './formStyles';
-
-const CountContainer = styled(AddressContainer)`
-    flex-direction: row;
-    column-gap: 20px;
-`;
 
 export function Form() {
     const [ count, setCount ] = useState(0);
+
+    const onClickAddButton = () => {
+        setCount(count === 2 ? 2 : count + 1);
+    };
+
+    const onClickMinusButton = () => {
+        setCount(count === 0 ? 0 : count - 1);
+    };
 
     return (
         <Container>
@@ -23,17 +28,23 @@ export function Form() {
                 <Input.Name />
                 <Input.PhoneNumber />
                 <AddressContainer>
-                    <button type='button'>우편 번호 찾기</button>
+                    <Button.Default title='우편 번호 찾기' />
                     <Input.AddressNumber />
                     <Input.Address />
                     <Input.DetailAddress />
                 </AddressContainer>
                 <CountContainer>
-                    <span>{`주문 수량 : ${count}`}</span>
-                    <span>* 주문은 최대 2개까지 가능합니다.</span>
-                    <button type='button' onClick={() => setCount(count + 1)}>+</button>
-                    <button type='button' onClick={() => setCount(count - 1)}>-</button>
+                    <CountTextContainer>
+                        <span>{`주문 수량 : ${count}`}</span>
+                        <CountExplainText>* 주문은 최대 2개까지 가능합니다.</CountExplainText>
+                    </CountTextContainer>
+                    <CountButtonContainer>
+                        <Button.Circle title='+' onClick={onClickAddButton} theme={{ variant : 'circle' }} />
+                        <Button.Circle title='-' onClick={onClickMinusButton} theme={{ variant : 'circle' }} />
+                    </CountButtonContainer>
                 </CountContainer>
+                <DividedLine />
+                <Button.Default title='주문서 제출하기' theme={{ variant : 'default', size : 'large' }} />
             </FormContainer>
         </Container>
     );
