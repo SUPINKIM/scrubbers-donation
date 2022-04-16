@@ -1,0 +1,22 @@
+{    
+    "compilerOptions": {
+        "target": "es2016",                         
+        "module": "esnext",                          
+        "jsx": "react",
+        "rootDir": "./",
+        "baseUrl": "./src",
+        "paths": {
+            "@components/*": ["./components/*"],
+            "@ui/*": ["./ui/*"]
+        },                                    
+        "skipLibCheck": true,         
+        "checkJs": true,
+        "removeComments": true,
+        "noFallthroughCasesInSwitch": true,
+        "esModuleInterop": true,
+        "moduleResolution": "Node",
+    },
+    "include": ["./src/**/*"],
+    "exclude": ["node_modules"],
+    "typeRoots": ["./src/types", "./node_modules/@types"]
+}
