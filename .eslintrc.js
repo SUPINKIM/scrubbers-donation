@@ -34,6 +34,7 @@ module.exports = {
         'import/prefer-default-export' : 'off',
         'import/no-unresolved' : 'off',
         'import/extensions' : 'off',
+        'react/require-default-props' : 'off',
     },
     settings : {
         'json/sort-package-json' : 'standard',
