@@ -21,6 +21,7 @@ const FormContainer = styled.div`
     border-radius: 8px;
     @media screen and (max-width: 500px) {
         width: 96%;
+        overflow: scroll;
     }
 `;
 
@@ -69,6 +70,7 @@ const CountContainer = styled(AddressContainer)`
     margin-top: 24px;
     margin-bottom: 24px;
     justify-content: space-between;
+    column-gap: 12px;
     @media screen and (max-width: 500px) {
         width: 96%
     }
@@ -100,8 +102,15 @@ const DividedLine = styled.div`
     }
 `;
 
+const ButtonContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+`;
+
 export {
     Container, FormContainer, FormTitleContainer, Title,
     SubTitle, AddressContainer, CountContainer, DividedLine,
     CountTextContainer, CountExplainText, CountButtonContainer,
+    ButtonContainer,
 };

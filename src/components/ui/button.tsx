@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { buttonStyles, WidthStyles } from 'styles/theme';
+import { buttonStyles, FontStyles, WidthStyles } from 'styles/theme';
 
 const StyledButton = styled.button`
     width: 160px;
@@ -16,6 +16,7 @@ const StyledButton = styled.button`
     }
     ${buttonStyles}
     ${WidthStyles}
+    ${FontStyles}
 `;
 
 interface IButtonProps {
@@ -44,12 +45,12 @@ ButtonTemplate.defaultProps = {
 
 export const Button = {
     Default : ({ title, onClick, theme }: IButtonProps) => (
-        <ButtonTemplate title={title} theme={theme} onClick={onClick} />
+        <ButtonTemplate title={title} theme={{ variant : 'default', ...theme }} onClick={onClick} />
     ),
     Outline : ({ title, onClick, theme }: IButtonProps) => (
-        <ButtonTemplate title={title} theme={theme} onClick={onClick} />
+        <ButtonTemplate title={title} theme={{ variant : 'outline', ...theme }} onClick={onClick} />
     ),
     Circle : ({ title, onClick, theme }: IButtonProps) => (
-        <ButtonTemplate title={title} theme={theme} onClick={onClick} />
+        <ButtonTemplate title={title} theme={{ variant : 'circle', ...theme }} onClick={onClick} />
     ),
 };

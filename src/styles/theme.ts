@@ -11,7 +11,20 @@ export const colors = {
     darkGray : '#576574',
     orange : '#f0932b',
     red : '#e74c3c',
+    charcoal : '#2f3542',
 };
+
+export const FontStyles = theme('font-size', {
+    lg : css`
+        font-size: 24px;
+    `,
+    md : css`
+        font-size: 20px;
+    `,
+    base : css`
+        font-size: 16px;
+    `,
+});
 
 export const WidthStyles = theme('size', {
     full : css`
@@ -20,8 +33,14 @@ export const WidthStyles = theme('size', {
     large : css`
         width: 70%;
     `,
-    midium : css`
+    medium : css`
         width: 50%;
+    `,
+    mobile : css`
+        width: 70%;
+        @media screen and (max-width: 500px) {
+            width: 100%;
+        }
     `,
 });
 
@@ -33,6 +52,7 @@ export const buttonStyles = theme('variant', {
     outline : css`
         background: ${colors.white};
         color: ${colors.orange};
+        border: 2px solid ${colors.orange};
     `,
     circle : css`
         width: 28px;

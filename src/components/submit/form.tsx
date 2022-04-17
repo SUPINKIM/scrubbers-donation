@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import {
     AddressContainer, Container, FormContainer, DividedLine,
     FormTitleContainer, Title, SubTitle, CountContainer,
-    CountExplainText, CountTextContainer, CountButtonContainer,
+    CountExplainText, CountTextContainer, CountButtonContainer, ButtonContainer,
 } from './formStyles';
 
 export function Form() {
@@ -39,12 +39,14 @@ export function Form() {
                         <CountExplainText>* 주문은 최대 2개까지 가능합니다.</CountExplainText>
                     </CountTextContainer>
                     <CountButtonContainer>
-                        <Button.Circle title='+' onClick={onClickAddButton} theme={{ variant : 'circle' }} />
-                        <Button.Circle title='-' onClick={onClickMinusButton} theme={{ variant : 'circle' }} />
+                        <Button.Circle title='+' onClick={onClickAddButton} />
+                        <Button.Circle title='-' onClick={onClickMinusButton} />
                     </CountButtonContainer>
                 </CountContainer>
                 <DividedLine />
-                <Button.Default title='주문서 제출하기' theme={{ variant : 'default', size : 'large' }} />
+                <ButtonContainer>
+                    <Button.Default title='주문서 제출하기' theme={{ size : 'mobile' }} />
+                </ButtonContainer>
             </FormContainer>
         </Container>
     );

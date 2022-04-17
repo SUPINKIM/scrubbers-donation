@@ -3,6 +3,8 @@ import reset from 'styled-reset';
 
 const GlobalStyles = createGlobalStyle`
 ${reset}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -12,6 +14,7 @@ ${reset}
 html,body {
     width: 100vw;
     height: 100vh;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 #root {
@@ -27,6 +30,16 @@ img {
     display: block;
     width: 100%;
     height: 100%;
+    border-radius: 8px;
+}
+
+p, div, span, button {
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }
 
 input {
