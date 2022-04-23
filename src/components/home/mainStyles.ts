@@ -36,7 +36,7 @@ const Title = styled.div`
     //animation: 1s ${showSlowly};
     filter: drop-shadow(0 0 0.8rem ${colors.yellow});
     @media screen and (max-width: 768px) {
-        font-size: 28px;
+        font-size: 24px;
     }
 `;
 
@@ -70,19 +70,19 @@ const ImageContainer = styled.div`
 
 const Card = styled.div`
     width: 520px;
-    height: 360px;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     margin: 12px;
-    padding: 16px;
+    padding: 20px;
     row-gap: 12px;
     animation: 1s ease-in ${showSlowly};
     justify-content: center;
     @media screen and (max-width: 768px) {
         width: 90%;
-        height: 500px;
+        margin-top: 24px;
     }
 `;
 
@@ -104,9 +104,9 @@ const RightImage = styled(Image)`
 
 const ButtonContainer = styled.div`
     width: 100%;
-    animation: 3s ease-in ${showSlowly};
+    animation: 2s ease-in ${showSlowly};
     @media screen and (max-width: 768px) {
-        margin-top: 24px;
+        margin-top: 16px;
     }
 `;
 
@@ -115,7 +115,7 @@ const ButtonLink = styled(Link)`
     width: 100%;
     display: flex;
     justify-content: center;
-    padding-bottom: 24px;
+    padding-top: 16px;
 `;
 
 export {

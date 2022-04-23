@@ -20,15 +20,25 @@ const InputContainer = styled.input`
     }
 `;
 
-interface IInputProps {
+interface IInputTemplateProps {
     placeholder: string;
     type?: string;
     className?: string;
+    onChange?: React.ChangeEventHandler;
 }
 
-function InputTemplate({ placeholder, type = 'text', className = '' }: IInputProps) {
+type IInput = Pick<IInputTemplateProps, 'onChange'>;
+
+function InputTemplate({
+    placeholder, type, className, onChange,
+}: IInputTemplateProps) {
     return (
-        <InputContainer placeholder={placeholder} type={type} className={className} />
+        <InputContainer
+            type={type}
+            className={className}
+            onChange={onChange}
+            placeholder={placeholder}
+        />
     );
 }
 
@@ -38,9 +48,9 @@ InputTemplate.defaultProps = {
 };
 
 export const Input = {
-    Name : () => <InputTemplate placeholder='주문자 분 성함을 입력해주세요.' />,
-    PhoneNumber : () => <InputTemplate placeholder='주문하시는 분의 연락처를 - 없이 적어주세요. 예) 01012345678' type='tel' />,
-    AddressNumber : () => <InputTemplate placeholder='우편 번호' className='width-md' />,
-    Address : () => <InputTemplate placeholder='받으실 주소' />,
-    DetailAddress : () => <InputTemplate placeholder='배송받으실 곳의 상세 주소를 정확히 적어주세요.' />,
+    Name : ({ onChange }: IInput) => <InputTemplate placeholder='주문자 분 성함을 입력해주세요.' onChange={onChange} />,
+    PhoneNumber : ({ onChange }: IInput) => <InputTemplate placeholder='주문하시는 분의 연락처를 - 없이 적어주세요. 예) 01012345678' type='tel' onChange={onChange} />,
+    AddressNumber : ({ onChange }: IInput) => <InputTemplate placeholder='우편 번호' className='width-md' onChange={onChange} />,
+    Address : ({ onChange }: IInput) => <InputTemplate placeholder='받으실 주소' onChange={onChange} />,
+    DetailAddress : ({ onChange }: IInput) => <InputTemplate placeholder='배송받으실 곳의 상세 주소를 정확히 적어주세요.' onChange={onChange} />,
 };

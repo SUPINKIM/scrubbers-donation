@@ -20,17 +20,18 @@ const StyledButton = styled.button`
 `;
 
 interface IButtonProps {
+    type?: 'button' | 'submit' | 'reset';
     title?: string | number;
     theme?: Record<string, string>;
     onClick?: () => void;
 }
 
 function ButtonTemplate({
-    title, theme, onClick,
+    title, theme, onClick, type,
 }: IButtonProps) {
     return (
         <ThemeProvider theme={theme}>
-            <StyledButton type='button' onClick={onClick}>
+            <StyledButton type={type} onClick={onClick}>
                 {title}
             </StyledButton>
         </ThemeProvider>
@@ -38,19 +39,26 @@ function ButtonTemplate({
 }
 
 ButtonTemplate.defaultProps = {
+    type : 'button',
     title : '',
     theme : { variant : 'default' },
     onClick : () => { },
 };
 
 export const Button = {
-    Default : ({ title, onClick, theme }: IButtonProps) => (
-        <ButtonTemplate title={title} theme={{ variant : 'default', ...theme }} onClick={onClick} />
+    Default : ({
+        title, onClick, theme, type,
+    }: IButtonProps) => (
+        <ButtonTemplate title={title} theme={{ variant : 'default', ...theme }} onClick={onClick} type={type} />
     ),
-    Outline : ({ title, onClick, theme }: IButtonProps) => (
-        <ButtonTemplate title={title} theme={{ variant : 'outline', ...theme }} onClick={onClick} />
+    Outline : ({
+        title, onClick, theme, type,
+    }: IButtonProps) => (
+        <ButtonTemplate title={title} theme={{ variant : 'outline', ...theme }} onClick={onClick} type={type} />
     ),
-    Circle : ({ title, onClick, theme }: IButtonProps) => (
-        <ButtonTemplate title={title} theme={{ variant : 'circle', ...theme }} onClick={onClick} />
+    Circle : ({
+        title, onClick, theme, type,
+    }: IButtonProps) => (
+        <ButtonTemplate title={title} theme={{ variant : 'circle', ...theme }} onClick={onClick} type={type} />
     ),
 };

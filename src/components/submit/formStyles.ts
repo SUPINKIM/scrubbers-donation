@@ -9,7 +9,7 @@ const Container = styled.div`
     padding: 16px;
 `;
 
-const FormContainer = styled.div`
+const FormContainer = styled.form`
     width: 70%;
     max-width: 1200px;
     display: flex;

@@ -35,6 +35,8 @@ module.exports = {
         'import/no-unresolved' : 'off',
         'import/extensions' : 'off',
         'react/require-default-props' : 'off',
+        'react/jsx-props-no-spreading' : 'off',
+        'react/jsx-indent-props' : 'off',
     },
     settings : {
         'json/sort-package-json' : 'standard',

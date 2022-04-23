@@ -3,7 +3,6 @@ import reset from 'styled-reset';
 
 const GlobalStyles = createGlobalStyle`
 ${reset}
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400&display=swap');
 
 * {
     box-sizing: border-box;
@@ -14,7 +13,7 @@ ${reset}
 html,body {
     width: 100vw;
     height: 100vh;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Noto Sans KR', 'Roboto', sans-serif;
 }
 
 #root {
