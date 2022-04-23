@@ -30,9 +30,7 @@ const FormTitleContainer = styled.div`
     display:flex;
     flex-direction: column;
     row-gap: 20px;
-    padding: 12px 0;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding: 20px 0;
 `;
 
 const Title = styled.h1`
@@ -47,18 +45,24 @@ const SubTitle = styled.div`
     word-break: keep-all;
 `;
 
-const AddressContainer = styled.div`
-    width: 100%;
-    align-self: center;
+const PrivateInfoContainer = styled.div`
+    width: 70%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     row-gap: 12px;
-    margin-top: 16px;
-    margin-left: 30%;
-    margin-bottom: 16px;
+    padding-bottom: 16px;
     @media screen and (max-width: 500px) {
-        margin-left: 4%;
+        width: 100%;
+    }
+`;
+
+const AddressContainer = styled.div`
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    @media screen and (max-width: 500px) {
+        width: 100%
     }
 `;
 
@@ -112,5 +116,5 @@ export {
     Container, FormContainer, FormTitleContainer, Title,
     SubTitle, AddressContainer, CountContainer, DividedLine,
     CountTextContainer, CountExplainText, CountButtonContainer,
-    ButtonContainer,
+    ButtonContainer, PrivateInfoContainer,
 };

@@ -5,11 +5,11 @@ import { colors } from 'styles/theme';
 
 const Container = styled.div`
     width: 100%;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 12px;
+    row-gap: 16px;
 `;
 
 const TitleContainer = styled.div`
@@ -33,6 +33,9 @@ const Title = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 12px;
+    word-break: keep-all;
+    white-space: pre-line;
+    line-height: 36px;
     //animation: 1s ${showSlowly};
     filter: drop-shadow(0 0 0.8rem ${colors.yellow});
     @media screen and (max-width: 768px) {

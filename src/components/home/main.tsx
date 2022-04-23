@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardItem } from 'components/ui/CardItems';
+import { CardItem } from '@components/ui/cardItems';
 import { Button } from 'components/ui/button';
 import {
     Container, Card, ContentsContainer, ImageContainer, ButtonLink,
@@ -33,7 +33,7 @@ export function Main() {
     return (
         <Container>
             <TitleContainer>
-                <Title> 🧽 수세미 프로젝트에 오신 걸 환영합니다! </Title>
+                <Title>🧽 수세미 프로젝트에 오신 걸 환영합니다!</Title>
             </TitleContainer>
             <ContentsContainer>
                 <ImageContainer>

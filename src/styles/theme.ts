@@ -36,6 +36,9 @@ export const WidthStyles = theme('size', {
     medium : css`
         width: 50%;
     `,
+    small : css`
+        width: 35%
+    `,
     mobile : css`
         width: 70%;
         @media screen and (max-width: 500px) {

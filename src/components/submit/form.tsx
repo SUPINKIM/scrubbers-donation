@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import {
     AddressContainer, Container, FormContainer, DividedLine,
-    FormTitleContainer, Title, SubTitle, CountContainer,
+    FormTitleContainer, Title, SubTitle, CountContainer, PrivateInfoContainer,
     CountExplainText, CountTextContainer, CountButtonContainer, ButtonContainer,
 } from './formStyles';
 
@@ -14,6 +14,9 @@ const src = '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
 
 export function Form() {
     const [ count, setCount ] = useState(1);
+    const [ zonecode, setZoneCode ] = useState('');
+    const [ address, setAddress ] = useState('');
+
     const {
         register, handleSubmit, setValue,
     } = useForm();
@@ -22,7 +25,9 @@ export function Form() {
         window.daum.postcode.load(() => {
             new window.daum.Postcode({
                 oncomplete : (data) => {
-                    console.log(data);
+                    const { zonecode : code, address : ad } = data;
+                    setZoneCode(code as string);
+                    setAddress(ad);
                 },
             }).open();
         });
@@ -33,7 +38,7 @@ export function Form() {
     };
 
     const onClickMinusButton = () => {
-        setCount(count === 0 ? 0 : count - 1);
+        setCount(count === 1 ? 1 : count - 1);
     };
 
     const onHandleSubmit = (formdata: Omit<OrderList, 'count'>) => {
@@ -53,6 +58,13 @@ export function Form() {
     }, []);
 
     useEffect(() => {
+        if (zonecode && address) {
+            setValue('addressNumber', zonecode);
+            setValue('address', address);
+        }
+    }, [ zonecode, address ]);
+
+    useEffect(() => {
         register('name', { required : '주문자 성함을 입력해주세요.' });
         register('phoneNumber', { required : '연락을 받으실 수 있는 전화번호를 적어주세요.' });
         register('addressNumber', { required : '우편 번호는 필수입니다.' });
@@ -67,12 +79,14 @@ export function Form() {
                     <Title>주문서</Title>
                     <SubTitle> * 적어주신 연락처로 물품 발송 시에 연락을 드릴 예정이니 정확한 정보 기재 부탁드립니다. 🙇‍♀️ </SubTitle>
                 </FormTitleContainer>
-                <Input.Name onChange={async (e: React.ChangeEvent) => setValue('name', (e.target as HTMLInputElement).value)} />
-                <Input.PhoneNumber onChange={async (e: React.ChangeEvent) => setValue('phoneNumber', (e.target as HTMLInputElement).value)} />
+                <PrivateInfoContainer>
+                    <Input.Name onChange={async (e: React.ChangeEvent) => setValue('name', (e.target as HTMLInputElement).value)} />
+                    <Input.PhoneNumber onChange={async (e: React.ChangeEvent) => setValue('phoneNumber', (e.target as HTMLInputElement).value)} />
+                </PrivateInfoContainer>
                 <AddressContainer>
-                    <Button.Default title='우편 번호 찾기' onClick={onClickAddressButton} />
-                    <Input.AddressNumber onChange={async (e: React.ChangeEvent) => setValue('addressNumber', (e.target as HTMLInputElement).value)} />
-                    <Input.Address onChange={async (e: React.ChangeEvent) => setValue('address', (e.target as HTMLInputElement).value)} />
+                    <Button.Default title='우편 번호 찾기' onClick={onClickAddressButton} theme={{ size : 'small' }} />
+                    <Input.AddressNumber readonly value={zonecode} onChange={() => {}} />
+                    <Input.Address readonly value={address} onChange={() => {}} />
                     <Input.DetailAddress onChange={async (e: React.ChangeEvent) => setValue('detailAddress', (e.target as HTMLInputElement).value)} />
                 </AddressContainer>
                 <CountContainer>
