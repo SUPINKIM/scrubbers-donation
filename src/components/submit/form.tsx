@@ -1,12 +1,13 @@
 import { Button } from 'components/ui/button';
 import { Input } from 'components/ui/input';
+import useSubmitForm from 'frameworks/firebase/useSubmitForm';
 import { OrderList } from 'frameworks/types';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import {
     AddressContainer, Container, FormContainer, DividedLine,
     FormTitleContainer, Title, SubTitle, CountContainer, PrivateInfoContainer,
-    CountExplainText, CountTextContainer, CountButtonContainer, ButtonContainer,
+    CountExplainText, CountTextContainer, CountButtonContainer, ButtonContainer, ErrorText,
 } from './formStyles';
 
 const id = 'postcode-frame';
@@ -18,8 +19,10 @@ export function Form() {
     const [ address, setAddress ] = useState('');
 
     const {
-        register, handleSubmit, setValue,
+        register, handleSubmit, setValue, formState : { errors },
     } = useForm();
+
+    const { saveUserInfo } = useSubmitForm();
 
     const onClickAddressButton = () => {
         window.daum.postcode.load(() => {
@@ -42,7 +45,7 @@ export function Form() {
     };
 
     const onHandleSubmit = (formdata: Omit<OrderList, 'count'>) => {
-        console.log(formdata);
+        saveUserInfo(formdata);
     };
 
     useEffect(() => {
@@ -81,6 +84,7 @@ export function Form() {
                 </FormTitleContainer>
                 <PrivateInfoContainer>
                     <Input.Name onChange={async (e: React.ChangeEvent) => setValue('name', (e.target as HTMLInputElement).value)} />
+                    <ErrorText>{errors.name?.message}</ErrorText>
                     <Input.PhoneNumber onChange={async (e: React.ChangeEvent) => setValue('phoneNumber', (e.target as HTMLInputElement).value)} />
                 </PrivateInfoContainer>
                 <AddressContainer>

@@ -112,9 +112,14 @@ const ButtonContainer = styled.div`
     justify-content: center;
 `;
 
+const ErrorText = styled.div`
+    font-size: 14px;
+    color: red;
+`;
+
 export {
     Container, FormContainer, FormTitleContainer, Title,
     SubTitle, AddressContainer, CountContainer, DividedLine,
     CountTextContainer, CountExplainText, CountButtonContainer,
-    ButtonContainer, PrivateInfoContainer,
+    ButtonContainer, PrivateInfoContainer, ErrorText,
 };

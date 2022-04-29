@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardItem } from '@components/ui/cardItems';
+import { CardItem } from 'components/ui/cardItems';
 import { Button } from 'components/ui/button';
 import {
     Container, Card, ContentsContainer, ImageContainer, ButtonLink,

@@ -28,8 +28,9 @@ const Title = styled.div`
     width: 90%;
     height: 120px;
     background-color: 120px;
-    font-size: 28px;
+    font-size: 30px;
     display: flex;
+    font-weight: 700;
     justify-content: center;
     align-items: center;
     border-radius: 12px;
@@ -39,7 +40,7 @@ const Title = styled.div`
     //animation: 1s ${showSlowly};
     filter: drop-shadow(0 0 0.8rem ${colors.yellow});
     @media screen and (max-width: 768px) {
-        font-size: 24px;
+        font-size: 26px;
     }
 `;
 
