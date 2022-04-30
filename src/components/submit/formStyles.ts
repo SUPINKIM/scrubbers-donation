@@ -113,7 +113,8 @@ const ButtonContainer = styled.div`
 `;
 
 const ErrorText = styled.div`
-    font-size: 14px;
+    font-size: 12px;
+    line-height: 16px;
     color: red;
 `;
 

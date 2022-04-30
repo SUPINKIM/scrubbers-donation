@@ -3,7 +3,7 @@ import { CardItem } from 'components/ui/cardItems';
 import { Button } from 'components/ui/button';
 import {
     Container, Card, ContentsContainer, ImageContainer, ButtonLink,
-    Title, TitleContainer, LeftImage, RightImage, ButtonContainer,
+    Title, TitleContainer, Image, ButtonContainer,
 } from './mainStyles';
 
 const contents = [
@@ -37,12 +37,19 @@ export function Main() {
             </TitleContainer>
             <ContentsContainer>
                 <ImageContainer>
-                    <LeftImage>
-                        <img src='assets/scrubbers2.jpeg' alt='수세미 예시2' loading='lazy' />
-                    </LeftImage>
-                    <RightImage>
-                        <img src='assets/scrubbers1.jpeg' alt='수세미 예시1' loading='lazy' />
-                    </RightImage>
+                    <Image>
+                        <img src='assets/smile1.jpeg' alt='수세미 예시2' loading='lazy' />
+                    </Image>
+
+                    <Image>
+                        <img src='assets/smile4.jpeg' alt='수세미 예시3' loading='lazy' />
+                    </Image>
+                    <Image>
+                        <img src='assets/smile2.jpeg' alt='수세미 예시1' loading='lazy' />
+                    </Image>
+                    <Image>
+                        <img src='assets/smile3.jpeg' alt='수세미 예시4' loading='lazy' />
+                    </Image>
                 </ImageContainer>
                 <Card>
                     {contents.map((item) => (

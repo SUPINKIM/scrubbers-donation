@@ -17,7 +17,7 @@ const TitleContainer = styled.div`
     height: 160px;
     display: flex;
     align-items: center;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1160px) {
         margin-bottom: 24px;
     }
 `;
@@ -39,7 +39,7 @@ const Title = styled.div`
     line-height: 36px;
     //animation: 1s ${showSlowly};
     filter: drop-shadow(0 0 0.8rem ${colors.yellow});
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1160px) {
         font-size: 26px;
     }
 `;
@@ -51,7 +51,7 @@ const ContentsContainer = styled.div`
     column-gap: 24px;
     justify-content: center;
     align-items: center;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1160px) {
         flex-direction: column;
         row-gap: 36px;
         justify-content: space-between; 
@@ -60,15 +60,17 @@ const ContentsContainer = styled.div`
 `;
 
 const ImageContainer = styled.div`
-    width: 50%;
-    height: 100%;
-    display: flex;
-    display: flex;
-    align-items: center;
+    min-width: fit-content;
+    max-width: fit-content;
+    height: fit-content;
+    display: grid;
     justify-content: center;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 20px;
+    row-gap: 20px;
     @media screen and (max-width: 768px) {
-        width: 90%;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        align-items: center;
     }
 `;
 
@@ -84,7 +86,7 @@ const Card = styled.div`
     row-gap: 12px;
     animation: 1s ease-in ${showSlowly};
     justify-content: center;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1160px) {
         width: 90%;
         margin-top: 24px;
     }
@@ -93,23 +95,15 @@ const Card = styled.div`
 const Image = styled.div`
     position: relative;
     width: 300px;
-    height: 360px;
+    height: 300px;
     border-radius: 12px;
     animation: 2s ease-in ${showSlowly};
-`;
-
-const LeftImage = styled(Image)`
-    top: -40px;
-`;
-
-const RightImage = styled(Image)`
-    top: 40px;
 `;
 
 const ButtonContainer = styled.div`
     width: 100%;
     animation: 2s ease-in ${showSlowly};
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1160px) {
         margin-top: 16px;
     }
 `;
@@ -124,5 +118,6 @@ const ButtonLink = styled(Link)`
 
 export {
     Container, Card, ContentsContainer, ImageContainer,
-    Title, TitleContainer, ButtonContainer, ButtonLink, LeftImage, RightImage,
+    Title, TitleContainer, ButtonContainer, ButtonLink,
+    Image,
 };
