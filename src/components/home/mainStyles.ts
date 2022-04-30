@@ -19,6 +19,7 @@ const TitleContainer = styled.div`
     align-items: center;
     @media screen and (max-width: 1160px) {
         margin-bottom: 24px;
+        height: 120px;
     }
 `;
 
@@ -32,15 +33,16 @@ const Title = styled.div`
     display: flex;
     font-weight: 700;
     justify-content: center;
-    align-items: center;
     border-radius: 12px;
     word-break: keep-all;
     white-space: pre-line;
     line-height: 36px;
+    padding-top: 10px;
     //animation: 1s ${showSlowly};
     filter: drop-shadow(0 0 0.8rem ${colors.yellow});
     @media screen and (max-width: 1160px) {
         font-size: 26px;
+        align-items: center;
     }
 `;
 

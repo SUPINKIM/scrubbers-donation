@@ -12,9 +12,10 @@ const Container = styled.div`
 const FormContainer = styled.form`
     width: 70%;
     max-width: 1200px;
+    overflow: auto;
     display: flex;
     flex-direction: column;
-    row-gap: 16px;
+    row-gap: 12px;
     padding: 16px;
     align-items: center;
     box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.2);

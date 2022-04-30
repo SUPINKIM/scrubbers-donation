@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Alert from 'components/ui/modal/alert';
 import Background from 'components/ui/modal/background';
-import ModalProvider from 'components/ui/modal/modal-provider';
+import ModalProvider from 'components/ui/modal/modalProvider';
 import { Button } from 'components/ui/button';
 import { Input } from 'components/ui/input';
 import useSubmitForm from 'frameworks/firebase/useSubmitForm';
 import { OrderList } from 'frameworks/types';
 import { useForm } from 'react-hook-form';
+
+import { useRouter } from 'router/useRouter';
 import {
     AddressContainer, Container, FormContainer, DividedLine,
     FormTitleContainer, Title, SubTitle, CountContainer, PrivateInfoContainer,
@@ -26,6 +28,7 @@ export function Form() {
     } = useForm();
 
     const { saveUserInfo, isSuccess, isError } = useSubmitForm();
+    const { movePage } = useRouter();
 
     const onClickAddressButton = () => {
         window.daum.postcode.load(() => {
@@ -124,7 +127,7 @@ export function Form() {
                         <Alert
                             message='주문 폼 발송 성공 🎉'
                             confirmText='확인'
-                            confirmFunction={() => {}}
+                            confirmFunction={() => { movePage('/'); }}
                         />
                     </Background>
                 </ModalProvider>
@@ -135,7 +138,7 @@ export function Form() {
                         <Alert
                             message='주문 폼 발송 실패 😭 잠시 후 다시 시도해주세요.'
                             confirmText='확인'
-                            confirmFunction={() => {}}
+                            confirmFunction={() => { movePage('/'); }}
                         />
                     </Background>
                 </ModalProvider>
