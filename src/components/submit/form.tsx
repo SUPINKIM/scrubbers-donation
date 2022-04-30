@@ -1,8 +1,11 @@
+import React, { useEffect, useState } from 'react';
+import Alert from 'components/ui/modal/alert';
+import Background from 'components/ui/modal/background';
+import ModalProvider from 'components/ui/modal/modal-provider';
 import { Button } from 'components/ui/button';
 import { Input } from 'components/ui/input';
 import useSubmitForm from 'frameworks/firebase/useSubmitForm';
 import { OrderList } from 'frameworks/types';
-import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import {
     AddressContainer, Container, FormContainer, DividedLine,
@@ -22,7 +25,7 @@ export function Form() {
         register, handleSubmit, setValue, formState : { errors },
     } = useForm();
 
-    const { saveUserInfo } = useSubmitForm();
+    const { saveUserInfo, isSuccess, isError } = useSubmitForm();
 
     const onClickAddressButton = () => {
         window.daum.postcode.load(() => {
@@ -76,38 +79,67 @@ export function Form() {
     }, [ register ]);
 
     return (
-        <Container>
-            <FormContainer onSubmit={handleSubmit(onHandleSubmit)}>
-                <FormTitleContainer>
-                    <Title>주문서</Title>
-                    <SubTitle> * 적어주신 연락처로 물품 발송 시에 연락을 드릴 예정이니 정확한 정보 기재 부탁드립니다. 🙇‍♀️ </SubTitle>
-                </FormTitleContainer>
-                <PrivateInfoContainer>
-                    <Input.Name onChange={async (e: React.ChangeEvent) => setValue('name', (e.target as HTMLInputElement).value)} />
-                    <ErrorText>{errors.name?.message}</ErrorText>
-                    <Input.PhoneNumber onChange={async (e: React.ChangeEvent) => setValue('phoneNumber', (e.target as HTMLInputElement).value)} />
-                </PrivateInfoContainer>
-                <AddressContainer>
-                    <Button.Default title='우편 번호 찾기' onClick={onClickAddressButton} theme={{ size : 'small' }} />
-                    <Input.AddressNumber readonly value={zonecode} onChange={() => {}} />
-                    <Input.Address readonly value={address} onChange={() => {}} />
-                    <Input.DetailAddress onChange={async (e: React.ChangeEvent) => setValue('detailAddress', (e.target as HTMLInputElement).value)} />
-                </AddressContainer>
-                <CountContainer>
-                    <CountTextContainer>
-                        <span>{`주문 수량 : ${count}`}</span>
-                        <CountExplainText>* 주문은 최대 2개까지 가능합니다.</CountExplainText>
-                    </CountTextContainer>
-                    <CountButtonContainer>
-                        <Button.Circle title='+' onClick={onClickAddButton} />
-                        <Button.Circle title='-' onClick={onClickMinusButton} />
-                    </CountButtonContainer>
-                </CountContainer>
-                <DividedLine />
-                <ButtonContainer>
-                    <Button.Default type='submit' title='주문서 제출하기' theme={{ size : 'mobile' }} />
-                </ButtonContainer>
-            </FormContainer>
-        </Container>
+        <>
+            <Container>
+                <FormContainer onSubmit={handleSubmit(onHandleSubmit)}>
+                    <FormTitleContainer>
+                        <Title>주문서</Title>
+                        <SubTitle>
+                            * 적어주신 연락처로 물품 발송 시에 연락을 드릴 예정이니 정확한 정보 기재 부탁드립니다. 🙇‍♀️
+                        </SubTitle>
+                    </FormTitleContainer>
+                    <PrivateInfoContainer>
+                        <Input.Name onChange={async (e: React.ChangeEvent) => setValue('name', (e.target as HTMLInputElement).value)} />
+                        <ErrorText>{errors.name?.message}</ErrorText>
+                        <Input.PhoneNumber onChange={async (e: React.ChangeEvent) => setValue('phoneNumber', (e.target as HTMLInputElement).value)} />
+                        <ErrorText>{errors.phoneNumber?.message}</ErrorText>
+                    </PrivateInfoContainer>
+                    <AddressContainer>
+                        <Button.Default title='우편 번호 찾기' onClick={onClickAddressButton} theme={{ size : 'small' }} />
+                        <Input.AddressNumber readonly value={zonecode} onChange={() => {}} />
+                        <Input.Address readonly value={address} onChange={() => {}} />
+                        <ErrorText>{errors.address?.message}</ErrorText>
+                        <Input.DetailAddress onChange={async (e: React.ChangeEvent) => setValue('detailAddress', (e.target as HTMLInputElement).value)} />
+                        <ErrorText>{errors.detailAddress?.message}</ErrorText>
+                    </AddressContainer>
+                    <CountContainer>
+                        <CountTextContainer>
+                            <span>{`주문 수량 : ${count}`}</span>
+                            <CountExplainText>* 주문은 최대 2개까지 가능합니다.</CountExplainText>
+                        </CountTextContainer>
+                        <CountButtonContainer>
+                            <Button.Circle title='+' onClick={onClickAddButton} />
+                            <Button.Circle title='-' onClick={onClickMinusButton} />
+                        </CountButtonContainer>
+                    </CountContainer>
+                    <DividedLine />
+                    <ButtonContainer>
+                        <Button.Default type='submit' title='주문서 제출하기' theme={{ size : 'mobile' }} />
+                    </ButtonContainer>
+                </FormContainer>
+            </Container>
+            {isSuccess && (
+                <ModalProvider>
+                    <Background>
+                        <Alert
+                            message='주문 폼 발송 성공 🎉'
+                            confirmText='확인'
+                            confirmFunction={() => {}}
+                        />
+                    </Background>
+                </ModalProvider>
+            )}
+            {isError && (
+                <ModalProvider>
+                    <Background>
+                        <Alert
+                            message='주문 폼 발송 실패 😭 잠시 후 다시 시도해주세요.'
+                            confirmText='확인'
+                            confirmFunction={() => {}}
+                        />
+                    </Background>
+                </ModalProvider>
+            )}
+        </>
     );
 }

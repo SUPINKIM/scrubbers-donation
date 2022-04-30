@@ -57,6 +57,10 @@ export const buttonStyles = theme('variant', {
         color: ${colors.orange};
         border: 2px solid ${colors.orange};
     `,
+    black : css`
+        background: ${colors.charcoal};
+        color: ${colors.white};
+    `,
     circle : css`
         width: 28px;
         height: 28px;
