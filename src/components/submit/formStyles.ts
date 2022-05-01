@@ -41,6 +41,7 @@ const Title = styled.h1`
 
 const SubTitle = styled.div`
     font-size: 16px;
+    line-height: 24px;
     text-align: center;
     color: ${colors.gray}
     word-break: keep-all;

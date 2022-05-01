@@ -88,7 +88,7 @@ export function Form() {
                     <FormTitleContainer>
                         <Title>주문서</Title>
                         <SubTitle>
-                            * 적어주신 연락처로 물품 발송 시에 연락을 드릴 예정이니 정확한 정보 기재 부탁드립니다. 🙇‍♀️
+                            주문서를 제출 완료 시, 적어주신 연락처로 입금/발송 안내 문자를 드릴 예정이니 정확한 정보 기재 부탁드립니다. 🙇‍♀️
                         </SubTitle>
                     </FormTitleContainer>
                     <PrivateInfoContainer>
