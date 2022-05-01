@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const BgContainer = styled.div`
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-color: rgba(0,0,0,0.7);
     position: absolute;
     top: 0;

@@ -24,14 +24,15 @@ interface IButtonProps {
     title?: string | number;
     theme?: Record<string, string>;
     onClick?: () => void;
+    isDisabled?: boolean;
 }
 
 function ButtonTemplate({
-    title, theme, onClick, type,
+    title, theme, onClick, type, isDisabled,
 }: IButtonProps) {
     return (
         <ThemeProvider theme={theme}>
-            <StyledButton type={type} onClick={onClick}>
+            <StyledButton type={type} onClick={onClick} disabled={isDisabled}>
                 {title}
             </StyledButton>
         </ThemeProvider>
@@ -43,22 +44,41 @@ ButtonTemplate.defaultProps = {
     title : '',
     theme : { variant : 'default' },
     onClick : () => { },
+    isDisabled : false,
 };
 
 export const Button = {
     Default : ({
-        title, onClick, theme, type,
+        title, onClick, theme, type, isDisabled,
     }: IButtonProps) => (
-        <ButtonTemplate title={title} theme={{ variant : 'default', ...theme }} onClick={onClick} type={type} />
+        <ButtonTemplate
+            title={title}
+            theme={{ variant : 'default', ...theme }}
+            onClick={onClick}
+            type={type}
+            isDisabled={isDisabled}
+        />
     ),
     Outline : ({
-        title, onClick, theme, type,
+        title, onClick, theme, type, isDisabled,
     }: IButtonProps) => (
-        <ButtonTemplate title={title} theme={{ variant : 'outline', ...theme }} onClick={onClick} type={type} />
+        <ButtonTemplate
+            title={title}
+            theme={{ variant : 'outline', ...theme }}
+            onClick={onClick}
+            type={type}
+            isDisabled={isDisabled}
+        />
     ),
     Circle : ({
-        title, onClick, theme, type,
+        title, onClick, theme, type, isDisabled,
     }: IButtonProps) => (
-        <ButtonTemplate title={title} theme={{ variant : 'circle', ...theme }} onClick={onClick} type={type} />
+        <ButtonTemplate
+            title={title}
+            theme={{ variant : 'circle', ...theme }}
+            onClick={onClick}
+            type={type}
+            isDisabled={isDisabled}
+        />
     ),
 };

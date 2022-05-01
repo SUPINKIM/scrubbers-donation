@@ -24,6 +24,10 @@ const Container = styled.div`
 const Message = styled.div`
     font-size: 16px;
     word-break: keep-all;
+    white-space: pre-line;
+    word-wrap: break-word;
+    line-height: 24px;
+    text-align: center;
 `;
 
 interface IAlert {

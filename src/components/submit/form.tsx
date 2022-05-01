@@ -82,50 +82,48 @@ export function Form() {
     }, [ register ]);
 
     return (
-        <>
-            <Container>
-                <FormContainer onSubmit={handleSubmit(onHandleSubmit)}>
-                    <FormTitleContainer>
-                        <Title>주문서</Title>
-                        <SubTitle>
+        <Container>
+            <FormContainer onSubmit={handleSubmit(onHandleSubmit)}>
+                <FormTitleContainer>
+                    <Title>주문서</Title>
+                    <SubTitle>
                             주문서를 제출 완료 시, 적어주신 연락처로 입금/발송 안내 문자를 드릴 예정이니 정확한 정보 기재 부탁드립니다. 🙇‍♀️
-                        </SubTitle>
-                    </FormTitleContainer>
-                    <PrivateInfoContainer>
-                        <Input.Name onChange={async (e: React.ChangeEvent) => setValue('name', (e.target as HTMLInputElement).value)} />
-                        <ErrorText>{errors.name?.message}</ErrorText>
-                        <Input.PhoneNumber onChange={async (e: React.ChangeEvent) => setValue('phoneNumber', (e.target as HTMLInputElement).value)} />
-                        <ErrorText>{errors.phoneNumber?.message}</ErrorText>
-                    </PrivateInfoContainer>
-                    <AddressContainer>
-                        <Button.Default title='우편 번호 찾기' onClick={onClickAddressButton} theme={{ size : 'small' }} />
-                        <Input.AddressNumber readonly value={zonecode} onChange={() => {}} />
-                        <Input.Address readonly value={address} onChange={() => {}} />
-                        <ErrorText>{errors.address?.message}</ErrorText>
-                        <Input.DetailAddress onChange={async (e: React.ChangeEvent) => setValue('detailAddress', (e.target as HTMLInputElement).value)} />
-                        <ErrorText>{errors.detailAddress?.message}</ErrorText>
-                    </AddressContainer>
-                    <CountContainer>
-                        <CountTextContainer>
-                            <span>{`주문 수량 : ${count}`}</span>
-                            <CountExplainText>* 주문은 최대 2개까지 가능합니다.</CountExplainText>
-                        </CountTextContainer>
-                        <CountButtonContainer>
-                            <Button.Circle title='+' onClick={onClickAddButton} />
-                            <Button.Circle title='-' onClick={onClickMinusButton} />
-                        </CountButtonContainer>
-                    </CountContainer>
-                    <DividedLine />
-                    <ButtonContainer>
-                        <Button.Default type='submit' title='주문서 제출하기' theme={{ size : 'mobile' }} />
-                    </ButtonContainer>
-                </FormContainer>
-            </Container>
+                    </SubTitle>
+                </FormTitleContainer>
+                <PrivateInfoContainer>
+                    <Input.Name onChange={async (e: React.ChangeEvent) => setValue('name', (e.target as HTMLInputElement).value)} />
+                    <ErrorText>{errors.name?.message}</ErrorText>
+                    <Input.PhoneNumber onChange={async (e: React.ChangeEvent) => setValue('phoneNumber', (e.target as HTMLInputElement).value)} />
+                    <ErrorText>{errors.phoneNumber?.message}</ErrorText>
+                </PrivateInfoContainer>
+                <AddressContainer>
+                    <Button.Default title='우편 번호 찾기' onClick={onClickAddressButton} theme={{ size : 'small' }} />
+                    <Input.AddressNumber readonly value={zonecode} onChange={() => {}} />
+                    <Input.Address readonly value={address} onChange={() => {}} />
+                    <ErrorText>{errors.address?.message}</ErrorText>
+                    <Input.DetailAddress onChange={async (e: React.ChangeEvent) => setValue('detailAddress', (e.target as HTMLInputElement).value)} />
+                    <ErrorText>{errors.detailAddress?.message}</ErrorText>
+                </AddressContainer>
+                <CountContainer>
+                    <CountTextContainer>
+                        <span>{`주문 수량 : ${count}`}</span>
+                        <CountExplainText>* 주문은 최대 2개까지 가능합니다.</CountExplainText>
+                    </CountTextContainer>
+                    <CountButtonContainer>
+                        <Button.Circle title='-' onClick={onClickMinusButton} />
+                        <Button.Circle title='+' onClick={onClickAddButton} />
+                    </CountButtonContainer>
+                </CountContainer>
+                <DividedLine />
+                <ButtonContainer>
+                    <Button.Default type='submit' title='주문서 제출하기' theme={{ size : 'mobile' }} />
+                </ButtonContainer>
+            </FormContainer>
             {isSuccess && (
                 <ModalProvider>
                     <Background>
                         <Alert
-                            message='주문 폼 발송 성공 🎉 확인하는 대로 개별 연락을 드립니다.'
+                            message={'주문서 제출 완료 🎉 \n 확인하는 대로 개별 연락을 드립니다.'}
                             confirmText='확인'
                             confirmFunction={() => { movePage('/'); }}
                         />
@@ -136,13 +134,13 @@ export function Form() {
                 <ModalProvider>
                     <Background>
                         <Alert
-                            message='주문 폼 발송 실패 😭 잠시 후 다시 시도해주세요.'
+                            message={'주문 폼 발송 실패 😭 \n 잠시 후 다시 시도해주세요.'}
                             confirmText='확인'
                             confirmFunction={() => { movePage('/'); }}
                         />
                     </Background>
                 </ModalProvider>
             )}
-        </>
+        </Container>
     );
 }

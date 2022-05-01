@@ -71,4 +71,7 @@ export const buttonStyles = theme('variant', {
         color: ${colors.orange};
         border-radius: 50%;
     `,
+    disabled : css`
+        background: ${colors.gray};
+    `,
 });

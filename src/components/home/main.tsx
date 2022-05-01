@@ -63,6 +63,15 @@ export function Main() {
                     </ButtonContainer>
                 </Card>
             </ContentsContainer>
+            {/* <ModalProvider>
+                <Background>
+                    <Alert
+                        message={'1차 이벤트가 종료되었습니다. \n 리오프닝 준비 중이니 조금만 기다려주세요!! 🙇‍♀️'}
+                        confirmText='확인'
+                        confirmFunction={() => {}}
+                    />
+                </Background>
+            </ModalProvider> */}
         </Container>
     );
 }
