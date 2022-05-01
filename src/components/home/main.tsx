@@ -34,7 +34,7 @@ export function Main() {
         <Container>
             <TitleContainer>
                 <Title>🧽 수세미 프로젝트에 오신 걸 환영합니다!</Title>
-                <SubTitle>판매 수익금으로 동물 보호 단체에 기부하는 프로젝트</SubTitle>
+                <SubTitle>판매 수익금은 동물 보호 단체에 기부됩니다.</SubTitle>
             </TitleContainer>
             <ContentsContainer>
                 <ImageContainer>
