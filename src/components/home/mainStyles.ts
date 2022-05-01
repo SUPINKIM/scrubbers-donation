@@ -110,7 +110,7 @@ const Image = styled.div`
     width: 300px;
     height: 300px;
     border-radius: 12px;
-    animation: 2s ease-in ${showSlowly};
+    // animation: 2s ease-in ${showSlowly};
 `;
 
 const ButtonContainer = styled.div`
