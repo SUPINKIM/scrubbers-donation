@@ -123,7 +123,7 @@ export function Form() {
                 <ModalProvider>
                     <Background>
                         <Alert
-                            message={'주문서 제출 완료 🎉 \n 확인하는 대로 개별 연락을 드립니다.'}
+                            message={'주문서 제출 완료 🎉 \n 주문 확인 후 개별 연락드립니다.'}
                             confirmText='확인'
                             confirmFunction={() => { movePage('/'); }}
                         />
