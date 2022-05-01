@@ -125,7 +125,7 @@ export function Form() {
                 <ModalProvider>
                     <Background>
                         <Alert
-                            message='주문 폼 발송 성공 🎉'
+                            message='주문 폼 발송 성공 🎉 확인하는 대로 개별 연락을 드립니다.'
                             confirmText='확인'
                             confirmFunction={() => { movePage('/'); }}
                         />

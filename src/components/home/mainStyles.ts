@@ -13,10 +13,13 @@ const Container = styled.div`
 `;
 
 const TitleContainer = styled.div`
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 160px;
     display: flex;
     align-items: center;
+    row-gap: 20px;
     @media screen and (max-width: 1160px) {
         margin-bottom: 24px;
         height: 120px;
@@ -27,7 +30,6 @@ const Title = styled.div`
     margin: 0 auto;
     text-align: center;
     width: 90%;
-    height: 120px;
     background-color: 120px;
     font-size: 30px;
     display: flex;
@@ -43,6 +45,15 @@ const Title = styled.div`
     @media screen and (max-width: 1160px) {
         font-size: 26px;
         align-items: center;
+    }
+`;
+
+const SubTitle = styled.span`
+    font-size: 20px;
+    text-align: center;
+    word-break: keep-all;
+    @media screen and (max-width: 1160px) {
+        font-size: 18px;
     }
 `;
 
@@ -121,5 +132,5 @@ const ButtonLink = styled(Link)`
 export {
     Container, Card, ContentsContainer, ImageContainer,
     Title, TitleContainer, ButtonContainer, ButtonLink,
-    Image,
+    Image, SubTitle,
 };

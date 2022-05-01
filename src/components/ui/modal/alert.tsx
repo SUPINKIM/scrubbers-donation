@@ -21,6 +21,11 @@ const Container = styled.div`
     border-radius: 10px;
 `;
 
+const Message = styled.div`
+    font-size: 16px;
+    word-break: keep-all;
+`;
+
 interface IAlert {
     message: string;
     confirmText: string;
@@ -31,9 +36,9 @@ interface IAlert {
 export default function Alert({ message, confirmText, confirmFunction }: IAlert) {
     return (
         <Container>
-            <div>
+            <Message>
                 {message}
-            </div>
+            </Message>
             <Button.Default title={confirmText} onClick={confirmFunction} theme={{ size : 'small', variant : 'black' }} />
         </Container>
     );

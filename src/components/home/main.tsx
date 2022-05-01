@@ -3,13 +3,13 @@ import { CardItem } from 'components/ui/cardItems';
 import { Button } from 'components/ui/button';
 import {
     Container, Card, ContentsContainer, ImageContainer, ButtonLink,
-    Title, TitleContainer, Image, ButtonContainer,
+    Title, TitleContainer, Image, ButtonContainer, SubTitle,
 } from './mainStyles';
 
 const contents = [
     {
         title : '🤔 수세미 프로젝트란?',
-        content : '직접 만든 수세미를 판 수익금을 동물 보호 단체에 기부하는 프로젝트입니다.',
+        content : '직접 만든 수세미를 판 수익금을 동물 보호 단체에 기부하는 프로젝트입니다. 수량 소진 시 이벤트가 조기 종료 될 수 있습니다!',
     },
     {
         title : '😎 어떻게 참여하나요?',
@@ -17,11 +17,11 @@ const contents = [
     },
     {
         title : '🧽  수세미는 어떻게 생겼나요?',
-        content : '스마일 모양을 한 원형 수세미입니다. 기본 색상은 [버터밀크], 눈과 입은 [블랙]이에요. 지름은 대략 12cm 내외 입니다. 왼쪽 이미지를 참고해주세요.',
+        content : '스마일 모양을 한 원형 수세미입니다. 기본 색상은 [버터밀크], 눈과 입은 [블랙]이에요. 지름은 대략 12cm 내외 입니다. 이미지를 참고해주세요.',
     },
     {
         title : '💰 수세미의 가격은요?',
-        content : '수세미는 한 개당 2,000원입니다. 배송료는 별도입니다. (배송비 : 2,500원)',
+        content : '수세미는 개당 3,000원입니다. 배송료는 별도입니다. (기본 배송비 : 3,000원, 제주도 및 도서 지역 : 4,000원)',
     },
     {
         title : '📌 참고 사항',
@@ -34,21 +34,22 @@ export function Main() {
         <Container>
             <TitleContainer>
                 <Title>🧽 수세미 프로젝트에 오신 걸 환영합니다!</Title>
+                <SubTitle> 핸드메이드 수세미 판매 수익금으로 동물 보호 단체에 기부하는 프로젝트  </SubTitle>
             </TitleContainer>
             <ContentsContainer>
                 <ImageContainer>
                     <Image>
-                        <img src='assets/smile1.jpeg' alt='수세미 예시2' loading='lazy' />
+                        <img src='assets/smile111.jpeg' alt='수세미 예시2' loading='lazy' />
                     </Image>
 
                     <Image>
-                        <img src='assets/smile4.jpeg' alt='수세미 예시3' loading='lazy' />
+                        <img src='assets/smile444.jpeg' alt='수세미 예시3' loading='lazy' />
                     </Image>
                     <Image>
-                        <img src='assets/smile2.jpeg' alt='수세미 예시1' loading='lazy' />
+                        <img src='assets/smile222.jpeg' alt='수세미 예시1' loading='lazy' />
                     </Image>
                     <Image>
-                        <img src='assets/smile3.jpeg' alt='수세미 예시4' loading='lazy' />
+                        <img src='assets/smile333.jpeg' alt='수세미 예시4' loading='lazy' />
                     </Image>
                 </ImageContainer>
                 <Card>
