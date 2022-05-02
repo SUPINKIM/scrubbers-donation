@@ -4,4 +4,5 @@ export type UserType = {
     addressNumber: string;
     address: string;
     detailAddress: string;
+    count: number;
 };

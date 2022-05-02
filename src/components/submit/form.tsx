@@ -51,7 +51,7 @@ export function Form() {
     };
 
     const onHandleSubmit = (formdata: Omit<OrderList, 'count'>) => {
-        saveUserInfo({ ...FormData, count });
+        saveUserInfo({ ...formdata, count });
     };
 
     useEffect(() => {
