@@ -116,7 +116,7 @@ export function Form() {
                 </CountContainer>
                 <DividedLine />
                 <ButtonContainer>
-                    <Button.Default type='submit' title='주문서 제출하기' theme={{ size : 'mobile' }} />
+                    <Button.Default type='submit' title='주문서 제출하기' theme={{ size : 'mobile', variant : 'disabled' }} isDisabled />
                 </ButtonContainer>
             </FormContainer>
             {isSuccess && (

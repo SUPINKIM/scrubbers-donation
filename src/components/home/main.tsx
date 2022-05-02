@@ -1,6 +1,9 @@
 import React from 'react';
 import { CardItem } from 'components/ui/cardItems';
 import { Button } from 'components/ui/button';
+import ModalProvider from 'components/ui/modal/modalProvider';
+import Background from 'components/ui/modal/background';
+import Alert from 'components/ui/modal/alert';
 import {
     Container, Card, ContentsContainer, ImageContainer, ButtonLink,
     Title, TitleContainer, Image, ButtonContainer, SubTitle,
@@ -63,7 +66,7 @@ export function Main() {
                     </ButtonContainer>
                 </Card>
             </ContentsContainer>
-            {/* <ModalProvider>
+            <ModalProvider>
                 <Background>
                     <Alert
                         message={'1차 이벤트가 종료되었습니다. \n 리오프닝 준비 중이니 조금만 기다려주세요!! 🙇‍♀️'}
@@ -71,7 +74,7 @@ export function Main() {
                         confirmFunction={() => {}}
                     />
                 </Background>
-            </ModalProvider> */}
+            </ModalProvider>
         </Container>
     );
 }
