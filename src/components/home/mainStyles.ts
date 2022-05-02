@@ -11,6 +11,7 @@ const Container = styled.div`
     align-items: center;
     padding: 12px;
     row-gap: 16px;
+    overflow: hidden;
 `;
 
 const TitleContainer = styled.div`
