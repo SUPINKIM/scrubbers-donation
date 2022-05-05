@@ -107,7 +107,7 @@ const Card = styled.div`
     }
 `;
 
-const Image = styled.div`
+const Img = styled.div`
     position: relative;
     width: 300px;
     height: 300px;
@@ -134,5 +134,5 @@ const ButtonLink = styled(Link)`
 export {
     Container, Card, ContentsContainer, ImageContainer,
     Title, TitleContainer, ButtonContainer, ButtonLink,
-    Image, SubTitle,
+    Img, SubTitle,
 };

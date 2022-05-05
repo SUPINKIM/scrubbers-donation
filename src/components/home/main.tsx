@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { CardItem } from 'components/ui/cardItems';
 import { Button } from 'components/ui/button';
 import ModalProvider from 'components/ui/modal/modalProvider';
@@ -6,7 +6,7 @@ import Background from 'components/ui/modal/background';
 import Alert from 'components/ui/modal/alert';
 import {
     Container, Card, ContentsContainer, ImageContainer, ButtonLink,
-    Title, TitleContainer, Image, ButtonContainer, SubTitle,
+    Title, TitleContainer, Img, ButtonContainer, SubTitle,
 } from './mainStyles';
 
 const contents = [
@@ -33,6 +33,18 @@ const contents = [
 ];
 
 export function Main() {
+    const image1 = useRef<HTMLImageElement>();
+
+    useEffect(() => {
+        if (image1.current) {
+            const imgObj = new Image();
+            imgObj.src = image1.current.dataset.src;
+            imgObj.onload = () => {
+                image1.current.src = imgObj.src;
+            };
+        }
+    }, [ image1.current ]);
+
     return (
         <Container>
             <TitleContainer>
@@ -41,24 +53,25 @@ export function Main() {
             </TitleContainer>
             <ContentsContainer>
                 <ImageContainer>
-                    <Image>
+                    <Img>
                         <img
-                            src='assets/smile111.jpeg'
-                            data-src='https://via.placeholder.com/300'
+                            ref={image1}
+                            data-src='assets/smile111.jpeg'
+                            src='https://via.placeholder.com/300?text=scrubbers-image-loading'
                             alt='수세미 예시2'
                             loading='lazy'
                         />
-                    </Image>
+                    </Img>
 
-                    <Image>
+                    <Img>
                         <img src='assets/smile444.jpeg' alt='수세미 예시3' loading='lazy' />
-                    </Image>
-                    <Image>
+                    </Img>
+                    <Img>
                         <img src='assets/smile222.jpeg' alt='수세미 예시1' loading='lazy' />
-                    </Image>
-                    <Image>
+                    </Img>
+                    <Img>
                         <img src='assets/smile333.jpeg' alt='수세미 예시4' loading='lazy' />
-                    </Image>
+                    </Img>
                 </ImageContainer>
                 <Card>
                     {contents.map((item) => (
