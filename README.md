@@ -12,6 +12,9 @@
 - 2022.05.02 1차 이벤트 오픈 및 종료되었습니다.
 - 곧 2차 이벤트를 진행할 예정이니 조금만 기다려주세요. 🙌 
 
+<img width="776" alt="수세미프로젝트" src="https://user-images.githubusercontent.com/49034615/166897345-48be84a0-da03-45b6-b205-6d5e5f880aa6.png">
+
+
 # Tech Stack
 - React
 - React Hook Form
