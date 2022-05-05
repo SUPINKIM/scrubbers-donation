@@ -42,7 +42,12 @@ export function Main() {
             <ContentsContainer>
                 <ImageContainer>
                     <Image>
-                        <img src='assets/smile111.jpeg' alt='수세미 예시2' loading='lazy' />
+                        <img
+                            src='assets/smile111.jpeg'
+                            data-src='https://via.placeholder.com/300'
+                            alt='수세미 예시2'
+                            loading='lazy'
+                        />
                     </Image>
 
                     <Image>
