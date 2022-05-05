@@ -6,6 +6,12 @@
 
 - 현재는 주문서를 받아 개별 연락을 드릴 예정이지만, 앞으로 직접 결제도 가능할 수 있도록 디벨롭을 시킬 예정입니다. ✨
 
+- 수세미 프로젝트 참여하기 👉 [누르시면 수세미 프로젝트 페이지로 이동합니다!](https://scrubber-donation.netlify.app/)
+(link : https://scrubber-donation.netlify.app/)
+
+- 2022.05.02 1차 이벤트 오픈 및 종료되었습니다.
+- 곧 2차 이벤트를 진행할 예정이니 조금만 기다려주세요. 🙌 
+
 # Tech Stack
 - React
 - React Hook Form
