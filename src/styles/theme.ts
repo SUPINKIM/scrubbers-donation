@@ -72,6 +72,12 @@ export const buttonStyles = theme('variant', {
         border-radius: 50%;
     `,
     disabled : css`
-        background: ${colors.gray};
+        background: ${colors.lightGray};
+        color: ${colors.gray};
+        cursor: default;
+        opacity: 0.9;
+        :hover {
+          transform: none;
+        }
     `,
 });

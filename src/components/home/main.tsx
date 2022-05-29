@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { CardItem } from 'components/ui/cardItems';
 import { Button } from 'components/ui/button';
 import ModalProvider from 'components/ui/modal/modalProvider';
@@ -6,7 +6,7 @@ import Background from 'components/ui/modal/background';
 import Alert from 'components/ui/modal/alert';
 import {
     Container, Card, ContentsContainer, ImageContainer, ButtonLink,
-    Title, TitleContainer, Image, ButtonContainer, SubTitle,
+    Title, TitleContainer, Img, ButtonContainer, SubTitle,
 } from './mainStyles';
 
 const contents = [
@@ -33,6 +33,25 @@ const contents = [
 ];
 
 export function Main() {
+    const imageRefs = Array(4).fill(0).map(() => useRef<HTMLImageElement>());
+    const [ isShowModal, setShowModal ] = useState(true);
+
+    const loadImage = (imageRef: React.MutableRefObject<HTMLImageElement>) => new Promise<string>(
+        (resolve, reject) => {
+            const imgObj = new Image();
+            imgObj.src = imageRef.current.dataset.src;
+            imgObj.onload = () => resolve(imgObj.src);
+            imgObj.onerror = () => reject(Error('fail to load image'));
+        },
+    );
+
+    useEffect(() => {
+        Promise.all(imageRefs.map((ref) => loadImage(ref)))
+            .then((res) => res.forEach((url, index) => {
+                imageRefs[index].current.src = url;
+            })); // 추후 에러 핸들링 추가 작업 필요
+    }, []);
+
     return (
         <Container>
             <TitleContainer>
@@ -41,19 +60,43 @@ export function Main() {
             </TitleContainer>
             <ContentsContainer>
                 <ImageContainer>
-                    <Image>
-                        <img src='assets/smile111.jpeg' alt='수세미 예시2' loading='lazy' />
-                    </Image>
+                    <Img>
+                        <img
+                            ref={imageRefs[0]}
+                            data-src='assets/smile111.jpeg'
+                            src='https://via.placeholder.com/300?text=scrubbers-image-loading'
+                            alt='수세미 예시2'
+                            loading='lazy'
+                        />
+                    </Img>
 
-                    <Image>
-                        <img src='assets/smile444.jpeg' alt='수세미 예시3' loading='lazy' />
-                    </Image>
-                    <Image>
-                        <img src='assets/smile222.jpeg' alt='수세미 예시1' loading='lazy' />
-                    </Image>
-                    <Image>
-                        <img src='assets/smile333.jpeg' alt='수세미 예시4' loading='lazy' />
-                    </Image>
+                    <Img>
+                        <img
+                            ref={imageRefs[1]}
+                            data-src='assets/smile444.jpeg'
+                            src='https://via.placeholder.com/300?text=scrubbers-image-loading'
+                            alt='수세미 예시3'
+                            loading='lazy'
+                        />
+                    </Img>
+                    <Img>
+                        <img
+                            ref={imageRefs[2]}
+                            data-src='assets/smile222.jpeg'
+                            src='https://via.placeholder.com/300?text=scrubbers-image-loading'
+                            alt='수세미 예시1'
+                            loading='lazy'
+                        />
+                    </Img>
+                    <Img>
+                        <img
+                            ref={imageRefs[3]}
+                            data-src='assets/smile333.jpeg'
+                            src='https://via.placeholder.com/300?text=scrubbers-image-loading'
+                            alt='수세미 예시4'
+                            loading='lazy'
+                        />
+                    </Img>
                 </ImageContainer>
                 <Card>
                     {contents.map((item) => (
@@ -66,15 +109,19 @@ export function Main() {
                     </ButtonContainer>
                 </Card>
             </ContentsContainer>
-            <ModalProvider>
-                <Background>
-                    <Alert
-                        message={'1차 이벤트가 종료되었습니다. \n 리오프닝 준비 중이니 조금만 기다려주세요!! 🙇‍♀️'}
-                        confirmText='확인'
-                        confirmFunction={() => {}}
-                    />
-                </Background>
-            </ModalProvider>
+            {isShowModal && (
+                <ModalProvider>
+                    <Background>
+                        <Alert
+                            message={'1차 이벤트가 종료되었습니다. \n 리오프닝 준비 중이니 조금만 기다려주세요!! 🙇‍♀️'}
+                            confirmText='확인'
+                            confirmFunction={() => {
+                                setShowModal(false);
+                            }}
+                        />
+                    </Background>
+                </ModalProvider>
+            )}
         </Container>
     );
 }

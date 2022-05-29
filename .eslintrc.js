@@ -37,6 +37,7 @@ module.exports = {
         'react/require-default-props' : 'off',
         'react/jsx-props-no-spreading' : 'off',
         'react/jsx-indent-props' : 'off',
+        'padded-blocks' : 'off',
     },
     settings : {
         'json/sort-package-json' : 'standard',
