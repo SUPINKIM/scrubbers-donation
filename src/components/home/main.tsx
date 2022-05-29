@@ -49,8 +49,7 @@ export function Main() {
         Promise.all(imageRefs.map((ref) => loadImage(ref)))
             .then((res) => res.forEach((url, index) => {
                 imageRefs[index].current.src = url;
-            }))
-            .catch((error) => alert(error)); // 추후 에러 핸들링 수정 필요
+            })); // 추후 에러 핸들링 추가 작업 필요
     }, []);
 
     return (
