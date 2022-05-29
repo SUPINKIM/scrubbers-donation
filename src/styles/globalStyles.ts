@@ -12,11 +12,11 @@ ${reset}
 
 html,body {
     width: 100vw;
-    height: 100vh;
     font-family: 'Noto Sans KR', 'Roboto', sans-serif;
 }
 
 #root {
+    position: relative;
     width: 100%;
     height: 100%;
 }

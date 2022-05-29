@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { CardItem } from 'components/ui/cardItems';
 import { Button } from 'components/ui/button';
 import ModalProvider from 'components/ui/modal/modalProvider';
@@ -34,6 +34,7 @@ const contents = [
 
 export function Main() {
     const imageRefs = Array(4).fill(0).map(() => useRef<HTMLImageElement>());
+    const [ isShowModal, setShowModal ] = useState(true);
 
     const loadImage = (imageRef: React.MutableRefObject<HTMLImageElement>) => new Promise<string>(
         (resolve, reject) => {
@@ -109,15 +110,19 @@ export function Main() {
                     </ButtonContainer>
                 </Card>
             </ContentsContainer>
-            <ModalProvider>
-                <Background>
-                    <Alert
-                        message={'1차 이벤트가 종료되었습니다. \n 리오프닝 준비 중이니 조금만 기다려주세요!! 🙇‍♀️'}
-                        confirmText='확인'
-                        confirmFunction={() => {}}
-                    />
-                </Background>
-            </ModalProvider>
+            {isShowModal && (
+                <ModalProvider>
+                    <Background>
+                        <Alert
+                            message={'1차 이벤트가 종료되었습니다. \n 리오프닝 준비 중이니 조금만 기다려주세요!! 🙇‍♀️'}
+                            confirmText='확인'
+                            confirmFunction={() => {
+                                setShowModal(false);
+                            }}
+                        />
+                    </Background>
+                </ModalProvider>
+            )}
         </Container>
     );
 }

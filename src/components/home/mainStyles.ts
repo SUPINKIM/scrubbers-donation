@@ -5,7 +5,6 @@ import { colors } from 'styles/theme';
 
 const Container = styled.div`
     width: 100%;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,8 +17,7 @@ const TitleContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 160px;
-    display: flex;
+    height: 80px;
     align-items: center;
     row-gap: 20px;
     @media screen and (max-width: 1160px) {
@@ -32,7 +30,6 @@ const Title = styled.div`
     margin: 0 auto;
     text-align: center;
     width: 90%;
-    background-color: 120px;
     font-size: 30px;
     display: flex;
     font-weight: 700;
@@ -61,7 +58,7 @@ const SubTitle = styled.span`
 
 const ContentsContainer = styled.div`
     width: 100%;
-    height: calc(100vh - 160px);
+    height: calc(100vh - 100px);
     display: flex;
     column-gap: 24px;
     justify-content: center;
