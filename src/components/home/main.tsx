@@ -33,17 +33,24 @@ const contents = [
 ];
 
 export function Main() {
-    const image1 = useRef<HTMLImageElement>();
+    const imageRefs = Array(4).fill(0).map(() => useRef<HTMLImageElement>());
+
+    const loadImage = (imageRef: React.MutableRefObject<HTMLImageElement>) => new Promise<string>(
+        (resolve, reject) => {
+            const imgObj = new Image();
+            imgObj.src = imageRef.current.dataset.src;
+            imgObj.onload = () => resolve(imgObj.src);
+            imgObj.onerror = () => reject(Error('fail to load image'));
+        },
+    );
 
     useEffect(() => {
-        if (image1.current) {
-            const imgObj = new Image();
-            imgObj.src = image1.current.dataset.src;
-            imgObj.onload = () => {
-                image1.current.src = imgObj.src;
-            };
-        }
-    }, [ image1.current ]);
+        Promise.all(imageRefs.map((ref) => loadImage(ref)))
+            .then((res) => res.forEach((url, index) => {
+                imageRefs[index].current.src = url;
+            }))
+            .catch((error) => console.error(error)); // 추후 에러 핸들링 수정 필요
+    }, []);
 
     return (
         <Container>
@@ -55,7 +62,7 @@ export function Main() {
                 <ImageContainer>
                     <Img>
                         <img
-                            ref={image1}
+                            ref={imageRefs[0]}
                             data-src='assets/smile111.jpeg'
                             src='https://via.placeholder.com/300?text=scrubbers-image-loading'
                             alt='수세미 예시2'
@@ -64,13 +71,31 @@ export function Main() {
                     </Img>
 
                     <Img>
-                        <img src='assets/smile444.jpeg' alt='수세미 예시3' loading='lazy' />
+                        <img
+                            ref={imageRefs[1]}
+                            data-src='assets/smile444.jpeg'
+                            src='https://via.placeholder.com/300?text=scrubbers-image-loading'
+                            alt='수세미 예시3'
+                            loading='lazy'
+                        />
                     </Img>
                     <Img>
-                        <img src='assets/smile222.jpeg' alt='수세미 예시1' loading='lazy' />
+                        <img
+                            ref={imageRefs[2]}
+                            data-src='assets/smile222.jpeg'
+                            src='https://via.placeholder.com/300?text=scrubbers-image-loading'
+                            alt='수세미 예시1'
+                            loading='lazy'
+                        />
                     </Img>
                     <Img>
-                        <img src='assets/smile333.jpeg' alt='수세미 예시4' loading='lazy' />
+                        <img
+                            ref={imageRefs[3]}
+                            data-src='assets/smile333.jpeg'
+                            src='https://via.placeholder.com/300?text=scrubbers-image-loading'
+                            alt='수세미 예시4'
+                            loading='lazy'
+                        />
                     </Img>
                 </ImageContainer>
                 <Card>
