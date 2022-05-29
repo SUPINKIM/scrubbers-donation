@@ -50,7 +50,7 @@ export function Main() {
             .then((res) => res.forEach((url, index) => {
                 imageRefs[index].current.src = url;
             }))
-            .catch((error) => console.error(error)); // 추후 에러 핸들링 수정 필요
+            .catch((error) => alert(error)); // 추후 에러 핸들링 수정 필요
     }, []);
 
     return (
