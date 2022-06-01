@@ -5,7 +5,7 @@ import ModalProvider from 'components/ui/modal/modalProvider';
 import Background from 'components/ui/modal/background';
 import Alert from 'components/ui/modal/alert';
 import {
-    Container, Card, ContentsContainer, ImageContainer, ButtonLink,
+    Container, Card, ContentsContainer, ButtonLink, ImageContainer,
     Title, TitleContainer, Img, ButtonContainer, SubTitle,
 } from './mainStyles';
 
@@ -69,7 +69,6 @@ export function Main() {
                             loading='lazy'
                         />
                     </Img>
-
                     <Img>
                         <img
                             ref={imageRefs[1]}
