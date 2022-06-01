@@ -12,6 +12,7 @@ export const colors = {
     orange : '#f0932b',
     red : '#e74c3c',
     charcoal : '#2f3542',
+    coral : '#ff5252',
 };
 
 export const FontStyles = theme('font-size', {

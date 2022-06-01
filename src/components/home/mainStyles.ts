@@ -82,7 +82,7 @@ const ImageContainer = styled.div`
 `;
 
 const Card = styled.div`
-    width: 920px;
+    width: 840px;
     height: fit-content;
     display: flex;
     flex-direction: column;
