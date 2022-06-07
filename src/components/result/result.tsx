@@ -1,7 +1,6 @@
-import { Button } from 'components/ui/button';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Progressbar from './progressbar';
 
 const Container = styled.div`
     width: 100%;
@@ -11,15 +10,18 @@ const Container = styled.div`
     row-gap: 20px;
     justify-content: center;
     align-items: center;
+    padding: 12px;
 `;
 
-export function NotFoundComponent() {
+const Title = styled.h1`
+    font-size: 20px;
+`;
+
+export default function Result() {
     return (
         <Container>
-            <div>요청하신 페이지를 찾을 수 없습니다. 😭</div>
-            <Link to='/'>
-                <Button.Default title='홈으로 돌아가기' />
-            </Link>
+            <Title>첫 번째 이벤트가 마무리 되었습니다. 🎉 👏 </Title>
+            <Progressbar />
         </Container>
     );
 }

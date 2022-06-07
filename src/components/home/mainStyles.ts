@@ -17,7 +17,7 @@ const TitleContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 80px;
+    height: 100px;
     align-items: center;
     row-gap: 20px;
     @media screen and (max-width: 1160px) {
@@ -58,9 +58,9 @@ const SubTitle = styled.span`
 
 const ContentsContainer = styled.div`
     width: 100%;
-    height: calc(100vh - 100px);
     display: flex;
-    column-gap: 24px;
+    flex-direction: column;
+    row-gap: 24px;
     justify-content: center;
     align-items: center;
     @media screen and (max-width: 1160px) {
@@ -72,22 +72,17 @@ const ContentsContainer = styled.div`
 `;
 
 const ImageContainer = styled.div`
-    min-width: fit-content;
-    max-width: fit-content;
-    height: fit-content;
-    display: grid;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
     column-gap: 20px;
-    row-gap: 20px;
-    @media screen and (max-width: 768px) {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-        align-items: center;
-    }
+    row-gap: 12px;
 `;
 
 const Card = styled.div`
-    width: 520px;
+    width: 840px;
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -95,7 +90,7 @@ const Card = styled.div`
     border-radius: 8px;
     margin: 12px;
     padding: 20px;
-    row-gap: 12px;
+    row-gap: 16px;
     animation: 1s ease-in ${showSlowly};
     justify-content: center;
     @media screen and (max-width: 1160px) {

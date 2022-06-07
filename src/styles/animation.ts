@@ -31,3 +31,13 @@ export const showSlowly = keyframes`
         visibility: visible;
     }
 `;
+
+export const extendsLeftToRight = keyframes`
+    from {
+        width: 0px;
+    }
+
+    to {
+        width: 120px;
+    }
+`;
